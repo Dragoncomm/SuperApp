@@ -1,17 +1,29 @@
 name: CI
 
- on:
-   push:
-     branches:
-       - main
+on:
+  push:
+    branches:
+      - main
 
- jobs:
-   build:
-     runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-     steps:
-       - name: Get Your Code
-         uses: actions/checkout@v2
+    steps:
+      - name: Get Your Code
+        uses: actions/checkout@v2
 
-       - name: Say Hello to the World
-         run: echo "Hello, World!"
+      - name: Say Hello to the World
+        run: echo "Hello, World!"
+
+      - name: Check if PASSWORD is set
+        run: |
+          if [ -z "$PASSWORD" ]; then
+            echo "PASSWORD is not set"
+            exit 1
+          else
+            echo "Password is working"
+            echo "Login succeed"
+          fi
+        env:
+          PASSWORD: ${{ secrets.PASSWORD }}
