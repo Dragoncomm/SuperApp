@@ -1,0 +1,21 @@
+name:  Print Secret Variable - UserX
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  steps:
+  - name: Print Secret
+ 
+  env:
+    MY_VAL: ${{ vars.PASSWORD }}
+  run: |
+    	import os
+    	for q in (os.getenv("MY_VAL")):
+    		print(q)
+  shell: python
