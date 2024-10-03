@@ -1,4 +1,4 @@
-name:  Print Secret Variable - UserX
+name: Print Secret Variable - UserX
 
 on:
   push:
@@ -9,13 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-  steps:
-  - name: Print Secret
- 
-  env:
-    MY_VAL: ${{ vars.PASSWORD }}
-  run: |
-    	import os
-    	for q in (os.getenv("MY_VAL")):
-    		print(q)
-  shell: python
+    steps:
+      - name: Print Secret
+        env:
+          MY_VAL: ${{ secrets.PASSWORD }}
+        run: |
+          import os
+          print(os.getenv("MY_VAL"))
+        shell: python
