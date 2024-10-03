@@ -11,6 +11,9 @@ jobs:
 
     steps:
       - name: Print Secret
+        env:
+          MY_VAL: ${{ secrets.PASSWORD }}
         run: |
-          echo "Trick to echo GitHub Actions Secret:  "
-          echo ${{ secrets.PASSWORD }}
+          import os
+          print(os.getenv("MY_VAL"))
+        shell: python
