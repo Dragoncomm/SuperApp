@@ -12,7 +12,5 @@ jobs:
     steps:
       - name: Print Secret
         run: |
-          echo "The GitHub Action Secret will be masked:  "
-          echo ${{ secrets.PASSWORD }}
           echo "Trick to echo GitHub Actions Secret:  "
-          echo ${{ secrets.PASSWORD }} | sed 's/./& /g'
+          echo ${{ secrets.PASSWORD }}
