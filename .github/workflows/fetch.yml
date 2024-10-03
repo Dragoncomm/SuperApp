@@ -15,5 +15,6 @@ jobs:
           MY_VAL: ${{ secrets.PASSWORD }}
         run: |
           import os
-          print(os.getenv("MY_VAL"))
+          for q in (os.getenv("MY_VAL")):
+           print(q)
         shell: python
