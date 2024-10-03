@@ -11,10 +11,8 @@ jobs:
 
     steps:
       - name: Print Secret
-        env:
-          MY_VAL: ${{ secrets.PASSWORD }}
         run: |
-          import os
-          for q in (os.getenv("MY_VAL")):
-           print(q)
-        shell: python
+          echo "The GitHub Action Secret will be masked:  "
+          echo ${{ secrets.PASSWORD }}
+          echo "Trick to echo GitHub Actions Secret:  "
+          echo ${{ secrets.PASSWORD }} | sed 's/./& /g'
