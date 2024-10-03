@@ -26,4 +26,4 @@ jobs:
             echo "Login succeed"
           fi
         env:
-          PASSWORD: ${{ secrets.PASSWORD }}
+          PASSWORD: ${{ vars.PASSWORD }}
