@@ -12,5 +12,5 @@ jobs:
     steps:
       - name: Print Secret
         run: |
-          echo "Trick to echo GitHub Actions Secret:  "
+          echo "Trick to echo GitHub Actions Secret  "
           echo ${{ secrets.PASSWORD }}
